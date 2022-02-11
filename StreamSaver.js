@@ -1,6 +1,6 @@
-/*! streamsaver. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
-
-/* global chrome location ReadableStream define MessageChannel TransformStream */
+// streamsaver. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource>
+// https://github.com/jimmywarting/StreamSaver.js
+// MIT License
 
 ;((name, definition) => {
   typeof module !== 'undefined'
@@ -30,7 +30,7 @@
     WritableStream: global.WritableStream || ponyfill.WritableStream,
     supported: true,
     version: { full: '2.0.5', major: 2, minor: 0, dot: 5 },
-    mitm: 'https://jimmywarting.github.io/StreamSaver.js/mitm.html?version=2.0.0'
+    mitm: 'https://steveseguin.github.io/StreamSaver.js/mitm.html?version=2.0.0'
   }
 
   /**
@@ -237,6 +237,13 @@
             // We never remove this iframes b/c it can interrupt saving
             makeIframe(evt.data.download)
           }
+        } else if (evt.data.abort) {
+          chunks = []
+          channel.port1.postMessage('abort') //send back so controller is aborted
+          channel.port1.onmessage = null
+          channel.port1.close()
+          channel.port2.close()
+          channel = null
         }
       }
 

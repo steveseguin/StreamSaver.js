@@ -1,4 +1,5 @@
-/* global self ReadableStream Response */
+// https://github.com/jimmywarting/StreamSaver.js
+// MIT License
 
 self.addEventListener('install', () => {
   self.skipWaiting()
@@ -63,8 +64,9 @@ function createStream (port) {
         controller.enqueue(data)
       }
     },
-    cancel () {
-      console.log('user aborted')
+    cancel (reason) {
+      console.log('user aborted', reason)
+      port.postMessage({ abort: true })
     }
   })
 }
