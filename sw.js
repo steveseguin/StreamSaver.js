@@ -1,5 +1,4 @@
-// https://github.com/jimmywarting/StreamSaver.js
-// MIT License
+/* global self ReadableStream Response */
 
 self.addEventListener('install', () => {
   self.skipWaiting()
@@ -66,7 +65,7 @@ function createStream (port) {
     },
     cancel (reason) {
       console.log('user aborted', reason)
-      port.postMessage({ abort: true, reason: (reason || null) })
+      port.postMessage({ abort: true })
     }
   })
 }

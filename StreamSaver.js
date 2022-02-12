@@ -1,6 +1,6 @@
-// streamsaver. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource>
-// https://github.com/jimmywarting/StreamSaver.js
-// MIT License
+/*! streamsaver. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
+
+/* global chrome location ReadableStream define MessageChannel TransformStream */
 
 ;((name, definition) => {
   typeof module !== 'undefined'
@@ -29,8 +29,8 @@
     createWriteStream,
     WritableStream: global.WritableStream || ponyfill.WritableStream,
     supported: true,
-    version: { full: '2.0.5', major: 2, minor: 0, dot: 5 },
-    mitm: 'https://steveseguin.github.io/StreamSaver.js/mitm.html?version=2.0.0'
+    version: { full: '2.0.6', major: 2, minor: 0, dot: 6 },
+    mitm: 'https://steveseguib.github.io/StreamSaver.js/mitm.html?version=2.0.6'
   }
 
   /**
