@@ -66,7 +66,7 @@ function createStream (port) {
     },
     cancel (reason) {
       console.log('user aborted', reason)
-      port.postMessage({ abort: true })
+      port.postMessage({ abort: true, reason: (reason || null) })
     }
   })
 }
