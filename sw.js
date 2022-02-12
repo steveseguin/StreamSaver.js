@@ -1,3 +1,4 @@
+/*! streamsaver. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
 /* global self ReadableStream Response */
 
 self.addEventListener('install', () => {
