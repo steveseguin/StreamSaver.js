@@ -269,7 +269,8 @@
           //
           // even though it has everything it fails to download anything
           // that comes from the service worker..!
-          chunks.push(chunk)
+          // The caller may reuse or transfer its buffer after write resolves.
+          chunks.push(new Uint8Array(chunk))
           return
         }
 
